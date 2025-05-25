@@ -22,7 +22,6 @@ bin/
 ### Logs ###
 *.log
 *.tmp
-*.properties
 *.config
 ### NetBeans ###
 /nbproject/private/
