@@ -4,9 +4,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
+/**
+ * Тесты для приложения.
+ */
 public class AppTest {
-
+    /**
+     * Тестирует работу с первым конфигурационным файлом.
+     */
     @Test
     public void testFirstFile() {
         Injector injector = new Injector("injector-first.properties");
@@ -16,6 +20,9 @@ public class AppTest {
         });
     }
 
+    /**
+     * Тестирует работу со вторым конфигурационным файлом.
+     */
     @Test
     public void testSecondFile() {
         Injector injector = new Injector("injector-second.properties");
@@ -24,14 +31,18 @@ public class AppTest {
             App.main(new String[] {});
         });
     }
-
+    /**
+     * Тестирует обработку null в конструкторе Injector.
+     */
     @Test
     public void testNullParamConstructor() {
         assertThrows(Exception.class, () -> {
             new Injector(null);
         });
     }
-
+    /**
+     * Тестирует обработку null объекта для внедрения.
+     */
     @Test
     public void testNullObject() {
         Injector injector = new Injector("injector-first.properties");
