@@ -1,19 +1,42 @@
 package org.example;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.Test;
 
-/**
- * Unit test for simple App.
- */
+import static org.junit.jupiter.api.Assertions.*;
+
+
 public class AppTest {
 
-    /**
-     * Rigorous Test :-)
-     */
     @Test
-    public void shouldAnswerWithTrue() {
-        assertTrue(true);
+    public void testFirstFile() {
+        Injector injector = new Injector("injector-first.properties");
+        injector.inject(new SomeBean()).foo();
+        assertDoesNotThrow(() -> {
+            App.main(new String[] {});
+        });
+    }
+
+    @Test
+    public void testSecondFile() {
+        Injector injector = new Injector("injector-second.properties");
+        injector.inject(new SomeBean()).foo();
+        assertDoesNotThrow(() -> {
+            App.main(new String[] {});
+        });
+    }
+
+    @Test
+    public void testNullParamConstructor() {
+        assertThrows(Exception.class, () -> {
+            new Injector(null);
+        });
+    }
+
+    @Test
+    public void testNullObject() {
+        Injector injector = new Injector("injector-first.properties");
+        assertThrows(Exception.class, () -> {
+            injector.inject(null);
+        });
     }
 }
