@@ -1,10 +1,9 @@
 package org.example;
 
-/**
- * Hello world!
- */
+
 public class App {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        SomeBean sb = (new Injector("injector-second.properties")).inject(new SomeBean());
+        sb.foo();
     }
 }
