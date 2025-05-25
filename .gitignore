@@ -23,6 +23,8 @@ bin/
 *.log
 *.tmp
 *.config
+*.properties
+!src/main/resources/*.properties
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
